@@ -7,15 +7,17 @@ import { useUser } from "@clerk/nextjs";
 import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 import { useToast } from "@/hooks/use-toast";
 
+const initialValue = {
+  dateTime: new Date(),
+  description: "",
+  link: "",
+};
+
 const MeetingTypeList = () => {
   const router = useRouter();
   const { toast } = useToast();
-  const [values, setValues] = useState({
-    dateTime: new Date(),
-    description: "",
-    link: "",
-  });
-  const [callDetails, setCallDetails] = useState<Call>();
+  const [values, setValues] = useState(initialValue); // eslint-disable-line @typescript-eslint/no-unused-vars
+  const [callDetails, setCallDetails] = useState<Call>(); // eslint-disable-line @typescript-eslint/no-unused-vars
   const [meeting, setMeetingState] = useState<
     "isScheduleMeeting" | "isJoiningMeeting" | "isInstantMeeting" | undefined
   >(undefined);
